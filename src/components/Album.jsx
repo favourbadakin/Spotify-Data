@@ -4,7 +4,7 @@ import React from "react";
 const Album = ({ details }) => {
   console.log(details);
   return (
-    <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-[#0b090a]">
+    <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
       {details.map((alb, index) => (
         <div className="border text-[#FAF9F6]" key={index}>
           <a href={alb.external_urls.spotify} target="_blank">
