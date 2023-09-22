@@ -12,7 +12,7 @@ const Album = ({ details }) => {
           </a>
           <div className="p-4 text-center font-bold">
             <h4>{alb.name}</h4>
-            <p className="text-sm md:text-base">{`Released - ${alb.release_date.slice(0,4)}`}</p>
+            <p className="text-sm md:text-base">{alb.release_date.slice(0,4)}</p>
           </div>
         </div>
       ))}
