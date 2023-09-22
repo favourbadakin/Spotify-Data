@@ -4,8 +4,7 @@ import Album from './Album';
 
 const SearchBar = () => {
     const [input, setInput] = useState('')
-
-const [searchAlbum, setSearchAlbum] = useState([])
+    const [searchAlbum, setSearchAlbum] = useState([])
 
     //COPY AND PASTE
         const [accessToken, setAccessToken] = useState("");
@@ -55,7 +54,7 @@ const [searchAlbum, setSearchAlbum] = useState([])
     }
  //console.log(searchAlbum)
   return (
-    <section className="mt-3">
+    <section className="pt-3 bg-[#0b090a]">
       <form
         className="flex items-center px-4 md:px-[20%] lg:px-[30%]"
         onSubmit={handleSubmit}
