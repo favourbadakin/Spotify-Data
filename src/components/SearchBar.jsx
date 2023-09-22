@@ -81,7 +81,7 @@ const SearchBar = () => {
           <input
             type="text"
             id="simple-search"
-            className="bg-transparent border-2 capitalize text-[#FAF9F6] text-sm rounded-lg focus:outline-none focus:border-[#A1A1A1] block w-full pl-10 p-2.5"
+            className="bg-[#FFF] border-2 capitalize text-[#000] text-sm rounded-lg focus:outline-none block w-full pl-10 p-2.5"
             placeholder="Search for Artist"
             value={input}
             onChange={(event) => {
@@ -92,7 +92,7 @@ const SearchBar = () => {
         </div>
         <button
           type="submit"
-          className="p-2.5 ml-2 text-sm font-medium text-white hover:bg-[#1ed760] rounded-lg border bg-[#1DB954] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="p-2.5 ml-2 text-sm font-medium text-white hover:bg-[#1ed760] rounded-lg bg-[#1DB954] focus:ring-4 focus:outline-none"
         >
           <svg
             className="w-5 h-5"
