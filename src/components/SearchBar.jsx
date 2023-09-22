@@ -81,7 +81,7 @@ const SearchBar = () => {
           <input
             type="text"
             id="simple-search"
-            className="bg-transparent border-2 capitalize text-gray-800 text-sm rounded-lg focus:outline-none focus:border-[#A1A1A1] block w-full pl-10 p-2.5"
+            className="bg-transparent border-2 capitalize text-[#FAF9F6] text-sm rounded-lg focus:outline-none focus:border-[#A1A1A1] block w-full pl-10 p-2.5"
             placeholder="Search for Artist"
             value={input}
             onChange={(event) => {
