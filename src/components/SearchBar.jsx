@@ -1,58 +1,68 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import Album from './Album';
+import React from "react";
+import { useState, useEffect } from "react";
+import Album from "./Album";
 
 const SearchBar = () => {
-    const [input, setInput] = useState('')
-    const [searchAlbum, setSearchAlbum] = useState([])
+  const [input, setInput] = useState("");
+  const [searchAlbum, setSearchAlbum] = useState([]);
 
-    //COPY AND PASTE
-        const [accessToken, setAccessToken] = useState("");
-        //const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
-        //const CLIENT_SECRET = import.meta.env.VITE_APP_CLIENT_SECRET;
+  //COPY AND PASTE
+  const [accessToken, setAccessToken] = useState("");
+  //const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
+  //const CLIENT_SECRET = import.meta.env.VITE_APP_CLIENT_SECRET;
 
-        //console.log(CLIENT_ID)
-        const CLIENT_ID = "4e165049ed73401fbe15061b561d3275";
-        const CLIENT_SECRET = "61b12abbeaeb4d5abcfcf40ed4bd81e3";
-        useEffect(() => {
-          const authParameters = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
-          };
-          // console.log(CLIENT_ID);
-          fetch(`https://accounts.spotify.com/api/token`, authParameters)
-            .then((res) => res.json())
-            .then((data) => setAccessToken(data.access_token));
-        }, []);
+  //console.log(CLIENT_ID)
+  const CLIENT_ID = "4e165049ed73401fbe15061b561d3275";
+  const CLIENT_SECRET = "61b12abbeaeb4d5abcfcf40ed4bd81e3";
+  useEffect(() => {
+    const authParameters = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
+    };
+    // console.log(CLIENT_ID);
+    fetch(`https://accounts.spotify.com/api/token`, authParameters)
+      .then((res) => res.json())
+      .then((data) => setAccessToken(data.access_token));
+  }, []);
 
-        //COPY AND PASTE
+  //COPY AND PASTE
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();  
-        const searchParameters = {
-          method: 'GET',
-          headers: {
-            'Content-Type':'application/json',
-            'Authorization': 'Bearer ' + accessToken
-          }
-        }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const searchParameters = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + accessToken,
+      },
+    };
 
-        const artistId = await fetch(`https://api.spotify.com/v1/search?q=${input}&type=artist`, searchParameters)
-        .then(res => res.json())
-        //.then(data => console.log(data)) 
-        .then(data => {return data.artists.items[0].id})
-        //console.log('Artist id is '+ artistId)
+    const artistId = await fetch(
+      `https://api.spotify.com/v1/search?q=${input}&type=artist`,
+      searchParameters
+    )
+      .then((res) => res.json())
 
-        const returnedAlbums = await fetch (`https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album&market=us&limit=50`, searchParameters)
-        .then(res => res.json())
-        .then(data => {
-          setSearchAlbum(data.items)
-        })
-    }
- //console.log(searchAlbum)
+      //.then(data => console.log(data))
+      .then((data) => {
+        return data.artists.items[0].id;
+      });
+    console.log("Artist id is " + artistId);
+    artistId === null ? console.log("Invalid") : console.log("Valid");
+
+    const returnedAlbums = await fetch(
+      `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album&market=us&limit=50`,
+      searchParameters
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchAlbum(data.items);
+      });
+  };
+  //console.log(searchAlbum)
   return (
     <section className="pt-3 bg-[#0b090a]">
       <form
@@ -114,6 +124,6 @@ const SearchBar = () => {
       <Album details={searchAlbum} />
     </section>
   );
-}
+};
 
-export default SearchBar
+export default SearchBar;
