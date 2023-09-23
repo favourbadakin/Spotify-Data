@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 import Album from "./Album";
 
 const SearchBar = () => {
@@ -122,6 +123,9 @@ const SearchBar = () => {
         </button>
       </form>
       <Album details={searchAlbum} />
+      <CookieConsent buttonStyle={{ color: "#4e503b", fontSize: "13px" }}>
+        This website is not related to Spotify, it's just a learning project.
+      </CookieConsent>
     </section>
   );
 };
