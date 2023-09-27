@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import CookieConsent from "react-cookie-consent";
+
 import Album from "./Album";
 
 const SearchBar = () => {
@@ -123,15 +123,7 @@ const SearchBar = () => {
         </button>
       </form>
       <Album details={searchAlbum} />
-      <CookieConsent
-        location="bottom"
-        buttonText="No problem broh!"
-        style={{ background: "#1DB954" }}
-        buttonStyle={{ color: "#FFF", fontSize: "13px" }}
-        expires={150}
-      >
-        This website uses cookies to enhance the user experience.{" "}
-      </CookieConsent>
+      
     </section>
   );
 };
