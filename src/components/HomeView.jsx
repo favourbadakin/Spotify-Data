@@ -9,8 +9,12 @@ const HomeView = () => {
           <p className="bg-[#212529] p-3">
             <Link to="/albums"> View Albums </Link>
           </p>
-          <p className="bg-[#212529] p-3 mt-2">View Your Most Played Songs</p>
-          <p className="bg-[#212529] p-3 mt-2">View Your Most Played Artistes</p>
+          <p className="bg-[#212529] p-3 mt-2">
+            <Link to="/mostplayed">View Your Most Played Songs</Link>
+          </p>
+          <p className="bg-[#212529] p-3 mt-2">
+            View Your Most Played Artistes
+          </p>
         </div>
       </section>
     </>

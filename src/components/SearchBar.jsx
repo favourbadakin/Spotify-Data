@@ -1,11 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import Album from "./Album";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
   const [searchAlbum, setSearchAlbum] = useState([]);
+  //const [loading, setLoading] = useState(false);
+
+  
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 200);
+  // }, []);
+
 
   //COPY AND PASTE
   const [accessToken, setAccessToken] = useState("");
@@ -33,6 +44,7 @@ const SearchBar = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
     const searchParameters = {
       method: "GET",
       headers: {
@@ -62,6 +74,7 @@ const SearchBar = () => {
       .then((data) => {
         setSearchAlbum(data.items);
       });
+    
   };
   //console.log(searchAlbum)
   return (
