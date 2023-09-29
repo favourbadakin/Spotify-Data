@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const MostPlayedArtistes = () => {
   return (
@@ -8,9 +9,15 @@ const MostPlayedArtistes = () => {
           Your Most Played Artistes
         </h3>
 
-        <p className="bg-[#212529] p-3">Last one month</p>
-        <p className="bg-[#212529] p-3 mt-2">Last one year</p>
-        <p className="bg-[#212529] p-3 mt-2">All Time</p>
+        <p className="bg-[#212529] p-3">
+          <Link to="/mostplayedartistes/onemonth">Last one month</Link>
+        </p>
+        <p className="bg-[#212529] p-3 mt-2">
+          <Link to="/mostplayedartistes/oneyear">Last one year</Link>
+        </p>
+        <p className="bg-[#212529] p-3 mt-2">
+          <Link to="/mostplayedartistes/alltime">All Time</Link>
+        </p>
       </div>
     </section>
   );

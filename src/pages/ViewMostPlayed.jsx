@@ -12,10 +12,14 @@ const ViewMostPlayed = () => {
           </h3>
 
           <p className="bg-[#212529] p-3">
-            <Link to="/mostplayedartistes/onemonth">Last one month</Link>
+            <Link to="/mostplayedsongs/onemonth">Last one Month</Link>
           </p>
-          <p className="bg-[#212529] p-3 mt-2">Last one year</p>
-          <p className="bg-[#212529] p-3 mt-2">All Time</p>
+          <p className="bg-[#212529] p-3 mt-2">
+            <Link to="/mostplayedsongs/oneyear">Last one Year</Link>
+          </p>
+          <p className="bg-[#212529] p-3 mt-2">
+            <Link to="/mostplayedsongs/alltime">All Time</Link>
+          </p>
         </div>
       </section>
     </>
